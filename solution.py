@@ -22,7 +22,7 @@ def smtp_client(port=1025, mailserver='localhost'):
    clientsocket.send(heloCommand.encode())
    recv1 = clientsocket.recv(1024).decode()
    print(recv1)
-   if recv1[:3] != '250':
+   #if recv1[:3] != '250':
        #print('250 reply not received from server.')
 
    # Send MAIL FROM command and print server response.
