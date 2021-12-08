@@ -23,7 +23,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    recv1 = clientsocket.recv(1024).decode()
    #print(recv1)
    if recv1[:3] != '250':
-       #print('250 reply not received from server.')
+       print('250 reply not received from server.')
 
    # Send MAIL FROM command and print server response.
    # Fill in start
@@ -35,7 +35,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    # Send RCPT TO command and print server response.
    # Fill in start
    rcptto = ('REPT TO: <nathan.ma91@gmail.com>\r\n')
-   clientsocket.send(rcptto(1024).decode())
+   clientsocket.send(rcptto.encode())
    # Fill in end
 
    # Send DATA command and print server response.
@@ -44,7 +44,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    clientsocket.send(data.encode())
    recv1 = clientsocket.recv(1024).decode()
    if recv1[:3] != '354':
-       #print('354 reply not received from server.')
+       print('354 reply not received from server.')
 
    # Fill in end
 
